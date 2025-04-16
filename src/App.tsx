@@ -17,14 +17,14 @@ function App() {
     <BrowserRouter>
       <TooltipProvider>
         <QueryClientProvider client={queryClient}>
-          <Toaster />
-          <Sonner />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/project-request" element={<ProjectRequest />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Toaster />
+          <Sonner />
         </QueryClientProvider>
       </TooltipProvider>
     </BrowserRouter>
