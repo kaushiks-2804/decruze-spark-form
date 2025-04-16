@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -14,7 +14,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardTitle,
 } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
@@ -90,11 +89,11 @@ const OurWorkCarousel = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-3">Our Work</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-3 text-foreground">Our Work</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Explore our portfolio of successful student projects and client collaborations
             that showcase our expertise and innovation.
           </p>
@@ -126,54 +125,39 @@ const OurWorkCarousel = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               {filteredProjects.map((project) => (
                 <CarouselItem key={project.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="h-full">
-                    <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                      <div className="relative h-48 overflow-hidden">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
-                        <div className="absolute top-2 right-2">
-                          <Badge 
-                            className={
-                              project.category === 'web' 
-                                ? 'bg-brand-purple/20 text-brand-purple hover:bg-brand-purple/30'
-                                : 'bg-brand-teal/20 text-brand-teal hover:bg-brand-teal/30'
-                            }
-                          >
-                            {project.category === 'web' ? 'Web App' : 'AI Project'}
-                          </Badge>
-                        </div>
-                      </div>
-                      <CardContent className="pt-4 pb-2 flex-grow">
-                        <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
-                        <CardDescription className="line-clamp-2">
-                          {project.description}
-                        </CardDescription>
-                      </CardContent>
-                      <CardFooter className="pt-0 pb-4">
-                        <Button
-                          variant="ghost" 
-                          size="sm" 
-                          className="text-brand-purple hover:text-brand-purple/80 p-0"
-                          asChild
+                  <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-border bg-card text-card-foreground">
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      />
+                      <div className="absolute top-2 right-2">
+                        <Badge 
+                          className={
+                            project.category === 'web' 
+                              ? 'bg-brand-purple/20 text-brand-purple hover:bg-brand-purple/30'
+                              : 'bg-brand-teal/20 text-brand-teal hover:bg-brand-teal/30'
+                          }
                         >
-                          <Link to={project.link} className="flex items-center">
-                            View Details
-                            <ExternalLink className="ml-1 h-3 w-3" />
-                          </Link>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </div>
+                          {project.category === 'web' ? 'Web App' : 'AI Project'}
+                        </Badge>
+                      </div>
+                    </div>
+                    <CardContent className="p-5">
+                      <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
+                      <CardDescription className="text-muted-foreground">
+                        {project.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
                 </CarouselItem>
               ))}
             </CarouselContent>
 
             <div className="hidden md:block">
-              <CarouselPrevious className="left-1 bg-white/90 hover:bg-white border border-gray-200" />
-              <CarouselNext className="right-1 bg-white/90 hover:bg-white border border-gray-200" />
+              <CarouselPrevious className="left-1 bg-background hover:bg-background/90 border border-border text-foreground" />
+              <CarouselNext className="right-1 bg-background hover:bg-background/90 border border-border text-foreground" />
             </div>
           </Carousel>
           

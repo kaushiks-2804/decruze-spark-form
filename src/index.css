@@ -37,9 +37,39 @@
 
     --radius: 0.75rem;
   }
+
+  .dark {
+    --background: 225 9% 9%;
+    --foreground: 210 40% 98%;
+
+    --card: 228 9% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 228 9% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 265 84% 61%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 228 6% 16%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 228 6% 16%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 228 6% 16%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 228 6% 16%;
+    --input: 228 6% 16%;
+    --ring: 265 84% 61%;
+  }
   
   body {
-    @apply font-poppins bg-gray-50;
+    @apply font-poppins bg-background text-foreground transition-colors duration-300;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -49,15 +79,15 @@
 
 @layer components {
   .form-container {
-    @apply max-w-3xl mx-auto p-6 sm:p-8 bg-white rounded-xl shadow-lg;
+    @apply max-w-3xl mx-auto p-6 sm:p-8 bg-card rounded-xl shadow-lg;
   }
   
   .form-title {
-    @apply text-2xl sm:text-3xl font-bold text-gray-800 mb-6;
+    @apply text-2xl sm:text-3xl font-bold mb-6;
   }
   
   .input-label {
-    @apply block text-sm font-medium text-gray-700 mb-1;
+    @apply block text-sm font-medium text-foreground/80 mb-1;
   }
   
   .form-section {
@@ -70,7 +100,7 @@
   }
   
   .card {
-    @apply bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300;
+    @apply bg-card p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-card-foreground;
   }
 }
 
@@ -84,13 +114,13 @@
 }
 
 .file-input-button {
-  @apply flex items-center justify-center p-3 border-2 border-dashed border-gray-300 rounded-lg 
-  text-gray-600 hover:border-brand-purple hover:bg-gray-50 transition-all duration-300;
+  @apply flex items-center justify-center p-3 border-2 border-dashed border-border rounded-lg 
+  text-foreground/70 hover:border-brand-purple hover:bg-secondary transition-all duration-300;
 }
 
 /* Progress bar styles */
 .progress-container {
-  @apply w-full h-2 bg-gray-200 rounded-full overflow-hidden;
+  @apply w-full h-2 bg-secondary rounded-full overflow-hidden;
 }
 
 .progress-bar {
