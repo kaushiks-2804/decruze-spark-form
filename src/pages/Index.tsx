@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Code, Server, Cpu, PenTool } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/Layout';
+import ExploreProjectIdeas from '@/components/ExploreProjectIdeas';
 
 const Index = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -151,6 +152,9 @@ yourProject.start();
           </div>
         </div>
       </section>
+
+      {/* Explore Project Ideas Section */}
+      <ExploreProjectIdeas />
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-brand-purple/10 to-brand-teal/10">
